@@ -14,7 +14,7 @@ export default function AddStudent(props) {
     postalCode,
     dateAccepted,
     dateReturned,
-    onnameChange,
+    onNameChange,
     onOwnerChange,
     onPriceChange,
     onCityChange,
@@ -47,7 +47,7 @@ export default function AddStudent(props) {
           <TextField
             fullWidth
             label="Name"
-            onChange={(event) => onnameChange(event.target.value)}
+            onChange={(event) => onNameChange(event.target.value)}
             required
             value={name}
           />
@@ -112,7 +112,6 @@ export default function AddStudent(props) {
             fullWidth
             label="Return Date"
             onChange={(event) => onDateReturnedChange(event.target.value)}
-            required
             type="date"
             value={dateReturned}
           />
@@ -141,7 +140,7 @@ AddStudent.propTypes = {
   postalCode: PropTypes.string.isRequired,
   dateAccepted: PropTypes.string.isRequired,
   dateReturned: PropTypes.string.isRequired,
-  onnameChange: PropTypes.string.isRequired,
+  onNameChange: PropTypes.string.isRequired,
   onOwnerChange: PropTypes.string.isRequired,
   onPriceChange: PropTypes.string.isRequired,
   onCityChange: PropTypes.string.isRequired,
