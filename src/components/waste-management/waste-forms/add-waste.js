@@ -13,6 +13,7 @@ export default function AddStudent(props) {
     state,
     postalCode,
     dateAccepted,
+    dateReturned,
     onnameChange,
     onOwnerChange,
     onPriceChange,
@@ -20,6 +21,7 @@ export default function AddStudent(props) {
     onStateChange,
     onPostalCodeChange,
     onDateAcceptedChange,
+    onDateReturnedChange,
   } = props;
 
   // if any are empty the onSubmitDisabled button is set to true, meaning they cannot submit.
@@ -30,11 +32,12 @@ export default function AddStudent(props) {
     !city ||
     !state ||
     !postalCode ||
+    !dateReturned ||
     !dateAccepted;
 
   const addWasteHandler = (event) => {
     event.preventDefault();
-    onsubmit(name, owner, price, city, state, postalCode, dateAccepted);
+    onsubmit(name, owner, price, city, state, postalCode, dateAccepted, dateReturned);
   };
 
   return (
@@ -94,14 +97,24 @@ export default function AddStudent(props) {
             value={postalCode}
           />
         </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            label="Accepted Date"
+            onChange={(event) => onDateAcceptedChange(event.target.value)}
+            required
+            type='date'
+            value={dateAccepted}
+          />
+        </Grid>
         <Grid item xs={12}>
           <TextField
             fullWidth
-            label="Date"
-            onChange={(event) => onDateAcceptedChange(event.target.value)}
+            label="Return Date"
+            onChange={(event) => onDateReturnedChange(event.target.value)}
             required
-            type="date"
-            value={dateAccepted}
+            type='date'
+            value={dateReturned}
           />
         </Grid>
       </Grid>
@@ -127,6 +140,7 @@ AddStudent.propTypes = {
   state: PropTypes.string.isRequired,
   postalCode: PropTypes.string.isRequired,
   dateAccepted: PropTypes.string.isRequired,
+  dateReturned: PropTypes.string.isRequired,
   onnameChange: PropTypes.string.isRequired,
   onOwnerChange: PropTypes.string.isRequired,
   onPriceChange: PropTypes.string.isRequired,
@@ -134,4 +148,5 @@ AddStudent.propTypes = {
   onStateChange: PropTypes.string.isRequired,
   onPostalCodeChange: PropTypes.string.isRequired,
   onDateAcceptedChange: PropTypes.string.isRequired,
+  onDateReturnedChange: PropTypes.string.isRequired,
 };
