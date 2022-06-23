@@ -28,7 +28,7 @@ export default function Waste() {
   const refreshWaste = async () => {
     const response = await getWasteList();
     setWastes(response);
-    setActiveWaste(response.filter((waste) => waste.active === true));
+    setActiveWaste(response.filter((waste) => true));
   };
 
   const onAddWasteFormSubmit = async (
@@ -159,7 +159,7 @@ export default function Waste() {
         }}
       >
         <WasteList
-          waste={activeWaste}
+          wastes={activeWaste}
           archiveWasteHandler={archiveWasteHandler}
           updateWasteHandler={updateModalChange}
         />

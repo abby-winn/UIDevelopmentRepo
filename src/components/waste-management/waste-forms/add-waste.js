@@ -95,7 +95,7 @@ export default function AddWaste(props) {
             label="Price"
             onChange={(event) => onPriceChange(event.target.value)}
             required
-            value={price}
+            value={+price}
           />
         </Grid>
         <Grid item xs={12}>

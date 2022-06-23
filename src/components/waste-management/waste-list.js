@@ -16,26 +16,27 @@ export default function WasteList(props) {
   };
 
   return (
-    <Box sx={{ mt: 3 }}>
-      <Grid container spacing={2}>
-        {wastes.map((waste) => (
-          <Grid item xs={12} key={waste.id}>
-            <Typography component="p">{waste.id}</Typography>
-            <Typography component="p">{waste.name}</Typography>
-            <Typography component="p">Price: $+{waste.price}</Typography>
-            <Typography component="p">
-              Adress: {waste.city}, {waste.state} {waste.postalCode}
-            </Typography>
-            <Button value={waste.id} onClick={archiveWaste}>
-              Delete
-            </Button>
-            <Button value={waste.id} onClick={updateWaste}>
-              Update
-            </Button>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+    // <Box sx={{ mt: 3 }}>
+    //   <Grid container spacing={2}>
+    //     {wastes.map((waste) => (
+    //       <Grid item xs={12} key={waste.id}>
+    //         <Typography component="p">{waste.id}</Typography>
+    //         <Typography component="p">{waste.name}</Typography>
+    //         <Typography component="p">Price: ${waste.price}</Typography>
+    //         <Typography component="p">
+    //           Address: {waste.city}, {waste.state} {waste.postalCode}
+    //         </Typography>
+    //         <Button value={waste.id} onClick={archiveWaste}>
+    //           Delete
+    //         </Button>
+    //         <Button value={waste.id} onClick={updateWaste}>
+    //           Update
+    //         </Button>
+    //       </Grid>
+    //     ))}
+    //   </Grid>
+    // </Box>
+    <div>{wastes.length}</div>
   );
 }
 
