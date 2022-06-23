@@ -5,11 +5,7 @@ import { useState, useEffect } from 'react';
 import AddWaste from './waste-forms/add-waste';
 import WasteList from './waste-list';
 import UpdateWaste from './waste-forms/update-waste';
-import {
-  addWaste,
-  getWasteList,
-  updateWaste,
-} from '../../services/waste-services';
+import { addWaste, getWasteList, updateWaste } from '../../services/services';
 
 export default function Waste() {
   const [name, setName] = useState('');
@@ -52,8 +48,8 @@ export default function Waste() {
       wasteUserCity: enteredCity,
       wasteUserState: enteredState,
       wasteUserPostalCode: enteredPostalCode,
-      wasteUserDateAccepted: enteredDateAccepted,
-      wasteUserDateReturned: enteredDateReturned,
+      wasteUserDateAccepted: new Date(enteredDateAccepted),
+      wasteUserDateReturned: new Date(enteredDateReturned),
       active: true,
     };
 
