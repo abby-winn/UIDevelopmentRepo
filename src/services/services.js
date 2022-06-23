@@ -56,15 +56,9 @@ const baseWasteURL = ' https://ctw-dev-mc-wm.azurewebsites.net/';
  * @returns An array of Waste Items.
  */
 export const getWasteList = async () => {
-  const response = await fetch(`${baseWasteURL}inventory`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json, text/plain',
-      'Content-Type': 'application/json',
-    },
-  });
-  const parsedResponse = await parseFetchResponse(response);
+  const response = await fetch(`${baseWasteURL}inventory`, { method: 'GET' });
 
+  const parsedResponse = await parseFetchResponse(response);
   return parsedResponse;
 };
 
