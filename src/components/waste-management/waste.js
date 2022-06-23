@@ -5,64 +5,64 @@ import { useState, useEffect } from 'react';
 import AddWaste from './waste-forms/add-waste';
 import WasteList from './waste-list';
 import UpdateWaste from './waste-forms/update-waste';
-import { getWasteList, addWaste, updateWaste } from '../../services/services';
+import { addWaste, getWasteList, updateWaste } from '../../services/services';
 
-export default function Wastes() {
+export default function Waste() {
   const [name, setName] = useState('');
   const [owner, setOwner] = useState('');
-  const [dateAccepted, setDateAccepted] = useState('');
-  const [dateReturned, setDateReturned] = useState('');
   const [price, setPrice] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [postalCode, setPostalCode] = useState('');
+  const [dateAccepted, setDateAccepted] = useState('');
+  const [dateReturned, setDateReturned] = useState('');
   const [wastes, setWastes] = useState([]);
   const [activeWaste, setActiveWaste] = useState([]);
   const [updateWasteModal, setUpdateWasteModal] = useState(false);
   const [wasteToUpdate, setWasteToUpdate] = useState('');
 
   useEffect(() => {
-    refreshWastes();
+    refreshWaste();
   }, []);
 
-  const refreshWastes = async () => {
+  const refreshWaste = async () => {
     const response = await getWasteList();
     setWastes(response);
-    setActiveWaste(response.filter((waste) => wastes.active === true));
+    setActiveWaste(response.filter((waste) => waste.active === true));
   };
 
   const onAddWasteFormSubmit = async (
     enteredName,
     enteredOwner,
-    enteredDateAccepted,
-    enteredDateReturned,
     enteredPrice,
     enteredCity,
     enteredState,
-    enteredPostalCode
+    enteredPostalCode,
+    enteredDateAccepted,
+    enteredDateReturned
   ) => {
     const newWaste = {
-      wasteName: enteredName,
-      wasteOwner: enteredOwner,
-      wasteDateAccepted: new Date(enteredDateAccepted),
-      wasteDateReturned: new Date(enteredDateReturned),
-      wastePrice: enteredPrice,
-      wasteCity: enteredCity,
-      wasteState: enteredState,
-      wastePostalCode: enteredPostalCode,
+      wasteUserName: enteredName,
+      wasteUserOwner: enteredOwner,
+      wasteUserPrice: enteredPrice,
+      wasteUserCity: enteredCity,
+      wasteUserState: enteredState,
+      wasteUserPostalCode: enteredPostalCode,
+      wasteUserDateAccepted: new Date(enteredDateAccepted),
+      wasteUserDateReturned: new Date(enteredDateReturned),
       active: true,
     };
 
     await addWaste(newWaste);
-    refreshWastes();
+    refreshWaste();
     setName('');
     setOwner('');
-    setDateAccepted('');
-    setDateReturned('');
     setPrice('');
     setCity('');
     setState('');
     setPostalCode('');
+    setDateAccepted('');
+    setDateReturned('');
   };
 
   const archiveWasteHandler = async (wasteId) => {
@@ -71,7 +71,7 @@ export default function Wastes() {
       Active: false,
     };
     await updateWaste(updatedWaste);
-    refreshWastes();
+    refreshWaste();
   };
 
   const updateModalChange = (wasteId) => {
@@ -88,27 +88,27 @@ export default function Wastes() {
     wasteId,
     newName,
     newOwner,
-    newDateAccepted,
-    newDateReturned,
     newPrice,
     newCity,
     newState,
-    newPostalCode
+    newPostalCode,
+    newDateAccepted,
+    newDateReturned
   ) => {
     const updatedWaste = {
       id: wasteId,
-      wasteName: newName,
-      wasteOwner: newOwner,
-      wasteDateAccepted: newDateAccepted,
-      wasteDateReturned: newDateReturned,
-      wastePrice: newPrice,
-      wasteCity: newCity,
-      wasteState: newState,
-      wastePostalCode: newPostalCode,
+      wasteUserName: newName,
+      wasteUserOwner: newOwner,
+      wasteUserPrice: newPrice,
+      wasteUserCity: newCity,
+      wasteUserState: newState,
+      wasteUserPostalCode: newPostalCode,
+      wasteUserDateAccepted: newDateAccepted,
+      wasteUserDateReturned: newDateReturned,
       active: true,
     };
     await updateWaste(updatedWaste);
-    refreshWastes();
+    refreshWaste();
     updateModalChange();
   };
 
@@ -134,20 +134,20 @@ export default function Wastes() {
         <AddWaste
           name={name}
           owner={owner}
-          dateAccepted={dateAccepted}
-          dateReturned={dateReturned}
           price={price}
           city={city}
           state={state}
           postalCode={postalCode}
+          dateAccepted={dateAccepted}
+          dateReturned={dateReturned}
           onNameChange={setName}
           onOwnerChange={setOwner}
-          onDateAcceptedChange={setDateAccepted}
-          onDateReturnedChange={setDateReturned}
+          onPriceChange={setPrice}
           onCityChange={setCity}
           onStateChange={setState}
           onPostalCodeChange={setPostalCode}
-          onPriceChange={setPrice}
+          onDateAcceptedChange={setDateAccepted}
+          onDateReturnedChange={setDateAccepted}
           onSubmit={onAddWasteFormSubmit}
         />
       </Box>
@@ -159,7 +159,7 @@ export default function Wastes() {
         }}
       >
         <WasteList
-          wastes={activeWaste}
+          waste={activeWaste}
           archiveWasteHandler={archiveWasteHandler}
           updateWasteHandler={updateModalChange}
         />
