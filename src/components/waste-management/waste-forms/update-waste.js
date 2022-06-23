@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 
 export default function UpdateWaste(props) {
   const { waste, onSubmit, handleClose } = props;
-  const [Name, setName] = useState('');
+  const [name, setName] = useState('');
   const [owner, setOwner] = useState('');
   const [price, setPrice] = useState('');
   const [city, setCity] = useState('');
@@ -23,7 +23,7 @@ export default function UpdateWaste(props) {
 
   const initializeForm = () => {
     if (waste.name != null) {
-      setName(waste.Name);
+      setName(waste.name);
     }
     if (waste.owner != null) {
       setOwner(waste.owner);
@@ -59,7 +59,7 @@ export default function UpdateWaste(props) {
     event.preventDefault();
     onSubmit(
       waste.id,
-      Name,
+      name,
       owner,
       price,
       city,
@@ -104,7 +104,7 @@ export default function UpdateWaste(props) {
               fullWidth
               label="Name"
               onChange={nameChangeHandler}
-              value={Name}
+              value={name}
             />
           </Grid>
           <Grid item xs={12}>
