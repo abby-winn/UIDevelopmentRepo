@@ -28,7 +28,6 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
-
   return (
     <Container maxWidth="sm">
       <Box
