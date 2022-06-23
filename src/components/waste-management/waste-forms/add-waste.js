@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 
 export default function AddStudent(props) {
   const {
-    Name,
+    name,
     owner,
     price,
     city,
     state,
     postalCode,
-    dateAccepted, // do I need a date returned? in the form or is that just something that is updated?
-    onNameChange,
+    dateAccepted,
+    onnameChange,
     onOwnerChange,
     onPriceChange,
     onCityChange,
@@ -24,7 +24,7 @@ export default function AddStudent(props) {
 
   // if any are empty the onSubmitDisabled button is set to true, meaning they cannot submit.
   const onSubmitDisabled =
-    !Name ||
+    !name ||
     !owner ||
     !price ||
     !city ||
@@ -34,7 +34,7 @@ export default function AddStudent(props) {
 
   const addWasteHandler = (event) => {
     event.preventDefault();
-    onsubmit(Name, owner, price, city, state, postalCode, dateAccepted);
+    onsubmit(name, owner, price, city, state, postalCode, dateAccepted);
   };
 
   return (
@@ -44,9 +44,9 @@ export default function AddStudent(props) {
           <TextField
             fullWidth
             label="Name"
-            onChange={(event) => onNameChange(event.target.value)}
+            onChange={(event) => onnameChange(event.target.value)}
             required
-            value={Name}
+            value={name}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -120,14 +120,14 @@ export default function AddStudent(props) {
 }
 
 AddStudent.propTypes = {
-  Name: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   owner: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
   postalCode: PropTypes.string.isRequired,
   dateAccepted: PropTypes.string.isRequired,
-  onNameChange: PropTypes.string.isRequired,
+  onnameChange: PropTypes.string.isRequired,
   onOwnerChange: PropTypes.string.isRequired,
   onPriceChange: PropTypes.string.isRequired,
   onCityChange: PropTypes.string.isRequired,
