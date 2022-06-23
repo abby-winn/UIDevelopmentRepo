@@ -103,17 +103,17 @@ export default function AddStudent(props) {
             label="Accepted Date"
             onChange={(event) => onDateAcceptedChange(event.target.value)}
             required
-            type='date'
+            type="date"
             value={dateAccepted}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
             label="Return Date"
             onChange={(event) => onDateReturnedChange(event.target.value)}
             required
-            type='date'
+            type="date"
             value={dateReturned}
           />
         </Grid>
