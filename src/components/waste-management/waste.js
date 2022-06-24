@@ -96,15 +96,14 @@ export default function Waste() {
   ) => {
     const updatedWaste = {
       id: wasteId,
-      wasteUserName: newName,
-      wasteUserOwner: newOwner,
-      wasteUserPrice: newPrice,
-      wasteUserCity: newCity,
-      wasteUserState: newState,
-      wasteUserPostalCode: newPostalCode,
-      wasteUserDateAccepted: newDateAccepted,
-      wasteUserDateReturned: newDateReturned,
-      active: true,
+      name: newName,
+      owner: newOwner,
+      price: newPrice,
+      city: newCity,
+      state: newState,
+      postalCode: newPostalCode,
+      dateAccepted: newDateAccepted,
+      dateReturned: newDateReturned,
     };
     await updateWaste(updatedWaste);
     refreshWaste();
