@@ -57,12 +57,12 @@ export default function UpdateWaste(props) {
       waste.id,
       name,
       owner,
-      dateAccepted,
-      dateReturned,
       price,
       city,
       state,
-      postalCode
+      postalCode,
+      dateAccepted,
+      dateReturned
     );
   };
 

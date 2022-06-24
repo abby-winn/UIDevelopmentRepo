@@ -8,12 +8,12 @@ export default function AddWaste(props) {
   const {
     name,
     owner,
-    dateAccepted,
-    dateReturned,
     price,
     city,
     state,
     postalCode,
+    dateAccepted,
+    dateReturned,
     onNameChange,
     onOwnerChange,
     onDateAcceptedChange,
@@ -26,26 +26,19 @@ export default function AddWaste(props) {
   } = props;
 
   const onSubmitDisabled =
-    !name ||
-    !owner ||
-    !dateAccepted ||
-    !dateReturned ||
-    !price ||
-    !city ||
-    !state ||
-    !postalCode;
+    !name || !owner || !price || !city || !state || !postalCode || !dateAccepted || !dateReturned;
 
   const addWasteHandler = (event) => {
     event.preventDefault();
     onSubmit(
       name,
       owner,
-      dateAccepted,
-      dateReturned,
       price,
       city,
       state,
-      postalCode
+      postalCode,
+      dateAccepted,
+      dateReturned,   
     );
   };
 

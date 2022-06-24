@@ -42,15 +42,14 @@ export default function Waste() {
     enteredDateReturned
   ) => {
     const newWaste = {
-      wasteUserName: enteredName,
-      wasteUserOwner: enteredOwner,
-      wasteUserPrice: enteredPrice,
-      wasteUserCity: enteredCity,
-      wasteUserState: enteredState,
-      wasteUserPostalCode: enteredPostalCode,
-      wasteUserDateAccepted: new Date(enteredDateAccepted),
-      wasteUserDateReturned: new Date(enteredDateReturned),
-      active: true,
+      name: enteredName,
+      owner: enteredOwner,
+      price: enteredPrice,
+      city: enteredCity,
+      state: enteredState,
+      postalCode: enteredPostalCode,
+      dateAccepted: new Date(enteredDateAccepted),
+      dateReturned: new Date(enteredDateReturned),
     };
 
     await addWaste(newWaste);
