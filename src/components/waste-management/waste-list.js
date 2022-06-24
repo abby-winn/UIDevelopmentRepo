@@ -20,12 +20,15 @@ export default function WasteList(props) {
       <Grid container spacing={2}>
         {wastes.map((waste) => (
           <Grid item xs={12} key={waste.id}>
-            <Typography component="p">{waste.id}</Typography>
-            <Typography component="p">{waste.name}</Typography>
+            <Typography component="p">ID: {waste.id}</Typography>
+            <Typography component="p">Name: {waste.name}</Typography>
+            <Typography component="p">Owner: {waste.owner}</Typography>
             <Typography component="p">Price: ${waste.price}</Typography>
             <Typography component="p">
               Address: {waste.city}, {waste.state} {waste.postalCode}
             </Typography>
+            <Typography component="p">Date Accepted: {waste.dateAccepted}</Typography>
+            <Typography component="p">Date Returned: {waste.dateReturned}</Typography>
             <Button value={waste.id} onClick={archiveWaste}>
               Delete
             </Button>
@@ -36,6 +39,7 @@ export default function WasteList(props) {
         ))}
       </Grid>
     </Box>
+
   );
 }
 
