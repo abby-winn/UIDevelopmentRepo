@@ -147,7 +147,7 @@ export default function Waste() {
           onStateChange={setState}
           onPostalCodeChange={setPostalCode}
           onDateAcceptedChange={setDateAccepted}
-          onDateReturnedChange={setDateAccepted}
+          onDateReturnedChange={setDateReturned}
           onSubmit={onAddWasteFormSubmit}
         />
       </Box>
