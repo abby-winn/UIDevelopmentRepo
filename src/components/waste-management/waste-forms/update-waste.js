@@ -23,31 +23,31 @@ export default function UpdateWaste(props) {
   }, []);
 
   const initializeForm = () => {
-    if (waste.wasteName != null) {
-      setName(waste.wasteName);
+    if (waste.name != null) {
+      setName(waste.name);
     }
-    if (waste.wasteOwner != null) {
-      setOwner(waste.wasteOwner);
+    if (waste.owner != null) {
+      setOwner(waste.owner);
     }
-    if (waste.wasteDateAccepted != null) {
-      const date = waste.wasteDateAccepted.substring(0, 10);
+    if (waste.dateAccepted != null) {
+      const date = waste.dateAccepted.substring(0, 10);
       setDateAccepted(date);
     }
-    if (waste.wasteDateReturned != null) {
-      const date = waste.wasteDateReturned.substring(0, 10);
+    if (waste.dateReturned != null) {
+      const date = waste.dateReturned.substring(0, 10);
       setDateReturned(date);
     }
-    if (waste.wastePrice != null) {
-      setPrice(waste.wastePrice);
+    if (waste.price != null) {
+      setPrice(waste.price);
     }
-    if (waste.wasteCity != null) {
-      setCity(waste.wasteCity);
+    if (waste.city != null) {
+      setCity(waste.city);
     }
-    if (waste.wasteState != null) {
-      setState(waste.wasteState);
+    if (waste.state != null) {
+      setState(waste.state);
     }
-    if (waste.wastePostalCode != null) {
-      setPostalCode(waste.wastePostalCode);
+    if (waste.postalCode != null) {
+      setPostalCode(waste.postalCode);
     }
   };
 
@@ -93,7 +93,7 @@ export default function UpdateWaste(props) {
 
   return (
     <Dialog open onClose={handleClose}>
-      <DialogTitle>Update Student</DialogTitle>
+      <DialogTitle>Update Waste</DialogTitle>
       <Box>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>

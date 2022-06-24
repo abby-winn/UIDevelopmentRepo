@@ -26,7 +26,14 @@ export default function AddWaste(props) {
   } = props;
 
   const onSubmitDisabled =
-    !name || !owner || !price || !city || !state || !postalCode || !dateAccepted || !dateReturned;
+    !name ||
+    !owner ||
+    !price ||
+    !city ||
+    !state ||
+    !postalCode ||
+    !dateAccepted ||
+    !dateReturned;
 
   const addWasteHandler = (event) => {
     event.preventDefault();
@@ -38,7 +45,7 @@ export default function AddWaste(props) {
       state,
       postalCode,
       dateAccepted,
-      dateReturned,   
+      dateReturned
     );
   };
 
