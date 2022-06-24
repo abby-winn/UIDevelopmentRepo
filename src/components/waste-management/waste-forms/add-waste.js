@@ -93,7 +93,13 @@ export default function AddWaste(props) {
           <TextField
             fullWidth
             label="Price"
-            onChange={(event) => onPriceChange(event.target.value)}
+            onChange={(event) => {
+              const tempPrice = parseFloat(event.target.value);
+              if (isNaN(parseFloat(tempPrice)) || !isFinite(tempPrice)) {
+                return;
+              }
+              onPriceChange(String(tempPrice));
+            }}
             required
             value={price}
           />
