@@ -36,7 +36,6 @@ export default function WasteList(props) {
         ))}
       </Grid>
     </Box>
-
   );
 }
 

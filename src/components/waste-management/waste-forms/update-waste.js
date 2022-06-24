@@ -177,7 +177,6 @@ export default function UpdateWaste(props) {
   );
 }
 
-
 UpdateWaste.propTypes = {
   waste: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,

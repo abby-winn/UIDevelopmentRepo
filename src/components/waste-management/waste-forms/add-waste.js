@@ -95,7 +95,7 @@ export default function AddWaste(props) {
             label="Price"
             onChange={(event) => onPriceChange(event.target.value)}
             required
-            value={+price}
+            value={price}
           />
         </Grid>
         <Grid item xs={12}>
@@ -145,7 +145,7 @@ AddWaste.propTypes = {
   owner: PropTypes.string.isRequired,
   dateAccepted: PropTypes.string.isRequired,
   dateReturned: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
   postalCode: PropTypes.string.isRequired,
