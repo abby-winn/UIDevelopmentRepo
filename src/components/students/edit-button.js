@@ -1,9 +1,9 @@
 import Container from '@mui/material/Container';
-import { useState } from 'react';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogTitle, DialogActions } from '@mui/material';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
 
 export default function Students() {
   const [open, setOpen] = useState(false);
@@ -18,21 +18,12 @@ export default function Students() {
 
   return (
     <Container maxWidth="sm">
-      <IconButton
-        variant="contained"
-        aria-label="Edit"
-        sx={{
-          border: '0px solid orange',
-          borderRadius: 2,
-          backgroundColor: 'orange',
-        }}
-        onClick={handleClickOpen}
-      >
-        <EditIcon />
-      </IconButton>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Create New Admin
+      </Button>
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle center>Edit Admin</DialogTitle>
+        <DialogTitle center>Create New Admin</DialogTitle>
         <DialogActions>
           <Button variant="outlined" onClick={handleClose}>
             Register New Admin

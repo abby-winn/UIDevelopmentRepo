@@ -8,23 +8,37 @@ export default function AddStudent(props) {
   const {
     firstName,
     lastName,
-    birthDate,
-    cellPhone,
     emailAddress,
+    username,
+    password,
+    confirmPassword,
     onFirstNameChange,
     onLastNameChange,
-    onBirthDateChange,
-    onCellPhoneChange,
     onEmailAddressChange,
+    onUsernameChange,
+    onPasswordChange,
+    onConfirmPasswordChange,
     onSubmit,
   } = props;
 
   const onSubmitDisabled =
-    !firstName || !lastName || !birthDate || !cellPhone || !emailAddress;
+    !firstName ||
+    !lastName ||
+    !emailAddress ||
+    !username ||
+    !password ||
+    !confirmPassword;
 
   const addStudentHandler = (event) => {
     event.preventDefault();
-    onSubmit(firstName, lastName, birthDate, cellPhone, emailAddress);
+    onSubmit(
+      firstName,
+      lastName,
+      emailAddress,
+      username,
+      password,
+      confirmPassword
+    );
   };
 
   return (
@@ -51,30 +65,38 @@ export default function AddStudent(props) {
         <Grid item xs={12}>
           <TextField
             fullWidth
-            label="Date of Birth"
-            onChange={(event) => onBirthDateChange(event.target.value)}
-            required
-            type="date"
-            value={birthDate}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            label="Cell Phone Number"
-            onChange={(event) => onCellPhoneChange(event.target.value)}
-            required
-            value={cellPhone}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
             label="Email Address"
             onChange={(event) => onEmailAddressChange(event.target.value)}
             required
             type="email"
             value={emailAddress}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Username"
+            onChange={(event) => onUsernameChange(event.target.value)}
+            required
+            value={username}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Password"
+            onChange={(event) => onPasswordChange(event.target.value)}
+            required
+            value={password}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Confirm Password"
+            onChange={(event) => onConfirmPasswordChange(event.target.value)}
+            required
+            value={confirmPassword}
           />
         </Grid>
       </Grid>
@@ -95,13 +117,15 @@ export default function AddStudent(props) {
 AddStudent.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  birthDate: PropTypes.string.isRequired,
-  cellPhone: PropTypes.string.isRequired,
   emailAddress: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  confirmPassword: PropTypes.string.isRequired,
   onFirstNameChange: PropTypes.func.isRequired,
   onLastNameChange: PropTypes.func.isRequired,
-  onBirthDateChange: PropTypes.func.isRequired,
-  onCellPhoneChange: PropTypes.func.isRequired,
   onEmailAddressChange: PropTypes.func.isRequired,
+  onUsernameChange: PropTypes.string.isRequired,
+  onPasswordChange: PropTypes.string.isRequired,
+  onConfirmPasswordChange: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
