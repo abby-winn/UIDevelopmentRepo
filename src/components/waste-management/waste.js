@@ -8,19 +8,19 @@ import { Grid } from '@mui/material';
 
 export default function ButtonAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }} alignItems="center"
-    justifyContent="center">
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: '#212529'}}>
         <Toolbar>
           <Grid container spacing={1} alignItems="center" justify="center">
-            <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
+            <Grid item xl={3} lg={3} md={3} sx={{}}>
               <Box 
               display="flex" 
-              width={495} height={144} 
+              width={394} height={114} 
               bgcolor="grey"
               alignItems="center"
               justifyContent="center"
-            >
+              styler={{ml: 400}}
+              >
               <img src="https://dev-lead2change-ctw.azurewebsites.net/Images/Lead2ChangeLogo.png" width="100%" height="100%"/>
             </Box>
             </Grid>
