@@ -1,167 +1,54 @@
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+/* eslint-disable prettier/prettier */
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import { useState, useEffect } from 'react';
-import AddWaste from './waste-forms/add-waste';
-import WasteList from './waste-list';
-import UpdateWaste from './waste-forms/update-waste';
-import { addWaste, getWasteList, updateWaste } from '../../services/services';
+import Paper from '@mui/material/Paper';
+import Toolbar from '@mui/material/Toolbar';
+import { Grid } from '@mui/material';
 
-export default function Waste() {
-  const [name, setName] = useState('');
-  const [owner, setOwner] = useState('');
-  const [price, setPrice] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [dateAccepted, setDateAccepted] = useState('');
-  const [dateReturned, setDateReturned] = useState('');
-  const [wastes, setWastes] = useState([]);
-  const [activeWaste, setActiveWaste] = useState([]);
-  const [updateWasteModal, setUpdateWasteModal] = useState(false);
-  const [wasteToUpdate, setWasteToUpdate] = useState('');
-
-  useEffect(() => {
-    refreshWaste();
-  }, []);
-
-  const refreshWaste = async () => {
-    const response = await getWasteList();
-    setWastes(response);
-    setActiveWaste(response.filter((waste) => true));
-  };
-
-  const onAddWasteFormSubmit = async (
-    enteredName,
-    enteredOwner,
-    enteredPrice,
-    enteredCity,
-    enteredState,
-    enteredPostalCode,
-    enteredDateAccepted,
-    enteredDateReturned
-  ) => {
-    const newWaste = {
-      name: enteredName,
-      owner: enteredOwner,
-      price: enteredPrice,
-      city: enteredCity,
-      state: enteredState,
-      postalCode: enteredPostalCode,
-      dateAccepted: new Date(enteredDateAccepted),
-      dateReturned: new Date(enteredDateReturned),
-    };
-
-    await addWaste(newWaste);
-    refreshWaste();
-    setName('');
-    setOwner('');
-    setPrice('');
-    setCity('');
-    setState('');
-    setPostalCode('');
-    setDateAccepted('');
-    setDateReturned('');
-  };
-
-  const archiveWasteHandler = async (wasteId) => {
-    const updatedWaste = {
-      id: wasteId,
-      Active: false,
-    };
-    await updateWaste(updatedWaste);
-    refreshWaste();
-  };
-
-  const updateModalChange = (wasteId) => {
-    if (updateWasteModal === true) {
-      setUpdateWasteModal(false);
-    } else {
-      const wasteIndex = wastes.findIndex((waste) => waste.id === wasteId);
-      setWasteToUpdate(wastes[wasteIndex]);
-      setUpdateWasteModal(true);
-    }
-  };
-
-  const updateWasteHandler = async (
-    wasteId,
-    newName,
-    newOwner,
-    newPrice,
-    newCity,
-    newState,
-    newPostalCode,
-    newDateAccepted,
-    newDateReturned
-  ) => {
-    const updatedWaste = {
-      id: wasteId,
-      name: newName,
-      owner: newOwner,
-      price: newPrice,
-      city: newCity,
-      state: newState,
-      postalCode: newPostalCode,
-      dateAccepted: newDateAccepted,
-      dateReturned: newDateReturned,
-    };
-    await updateWaste(updatedWaste);
-    refreshWaste();
-    updateModalChange();
-  };
-
+export default function ButtonAppBar() {
   return (
-    <Container maxWidth="sm">
-      {updateWasteModal && (
-        <UpdateWaste
-          waste={wasteToUpdate}
-          onSubmit={updateWasteHandler}
-          handleClose={updateModalChange}
-        />
-      )}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography component="h1" variant="h5">
-          Waste
-        </Typography>
-        <AddWaste
-          name={name}
-          owner={owner}
-          price={price}
-          city={city}
-          state={state}
-          postalCode={postalCode}
-          dateAccepted={dateAccepted}
-          dateReturned={dateReturned}
-          onNameChange={setName}
-          onOwnerChange={setOwner}
-          onPriceChange={setPrice}
-          onCityChange={setCity}
-          onStateChange={setState}
-          onPostalCodeChange={setPostalCode}
-          onDateAcceptedChange={setDateAccepted}
-          onDateReturnedChange={setDateReturned}
-          onSubmit={onAddWasteFormSubmit}
-        />
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <WasteList
-          wastes={activeWaste}
-          archiveWasteHandler={archiveWasteHandler}
-          updateWasteHandler={updateModalChange}
-        />
-      </Box>
-    </Container>
+    <Box sx={{ flexGrow: 1 }} alignItems="center"
+    justifyContent="center">
+      <AppBar position="static" sx={{backgroundColor: '#212529'}}>
+        <Toolbar>
+          <Grid container spacing={1} alignItems="center" justify="center">
+            <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
+              <Box 
+              display="flex" 
+              width={495} height={144} 
+              bgcolor="grey"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <img src="https://dev-lead2change-ctw.azurewebsites.net/Images/Lead2ChangeLogo.png" width="100%" height="100%"/>
+            </Box>
+            </Grid>
+            <Grid item xl={8} lg={8} md={8} sm={8} xs={8} >
+              <Grid container spacing={2}>
+                <Grid item xl={2}>
+                  <p>Inactive Students</p>
+                </Grid>
+                <Grid item xl={2}>
+                  <p>Coaches</p>
+                </Grid>
+                <Grid item xl={2}>
+                  <p>Interviews</p>
+                </Grid>
+                <Grid item xl={2}>
+                  <p>Questions</p>
+                </Grid>
+                <Grid item xl={2}>
+                  <p>Admins</p>
+                </Grid>
+                <Grid item xl={2}>
+                  <p>Hello *insert name here*</p>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }

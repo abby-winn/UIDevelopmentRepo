@@ -1,4 +1,5 @@
 const ROUTES = {
+  HEADER: '/header-test',
   HOME: '/',
   SIGN_UP: '/sign-up',
   STUDENTS: '/students',
