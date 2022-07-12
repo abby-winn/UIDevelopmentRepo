@@ -11,12 +11,43 @@ const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
-  transform: 'translate(-50%, -50%)',
   width: 400,
+  transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
   borderRadius: '10px',
   boxShadow: 24,
-  p: 4,
+};
+
+const modalTextStyle = {
+  fontSize: 20,
+  color: 'grey',
+  p: 2,
+  fontFamily: 'calibri',
+  textAlign: 'center',
+};
+
+const modalWarningStyle = {
+  fontSize: 20,
+  color: 'red',
+  textAlign: 'center',
+  fontFamily: 'calibri',
+  p: 2,
+};
+
+const modalHeadingStyle = {
+  justifyContent: 'center',
+  bgcolor: '#004cbb',
+  p: 2,
+  textAlign: 'center',
+  fontFamily: 'Calibri',
+  color: 'white',
+  borderRadius: '10px 10px 0px 0px',
+  fontSize: 20,
+};
+
+const buttonAlign = {
+  textAlign: 'center',
+  p: 2,
 };
 
 export default function BasicModal() {
@@ -24,37 +55,23 @@ export default function BasicModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-
   return (
     <div>
       <Button onClick={handleOpen}>Delete</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Delete Admin
-            <Button onClick={handleClose}>X</Button>
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography sx={modalHeadingStyle}>Delete Admin</Typography>
+          <Typography sx={modalTextStyle}>
             Are you sure you want to delete this administrative account?
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            All data will be lost.
-          </Typography>
-          <Typography>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button>Delete</Button>
+          <Typography sx={modalWarningStyle}>All data will be lost.</Typography>
+          <Typography sx={buttonAlign}>
+            <Button variant="contained" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="contained" onClick={handleClose}>
+              Delete
+            </Button>
           </Typography>
         </Box>
       </Modal>
