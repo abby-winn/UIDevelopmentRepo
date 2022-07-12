@@ -28,6 +28,10 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
+  const onTestClick = () => {
+    navigate(ROUTES.TEST);
+  };
+
   return (
     <Container maxWidth="sm">
       <Box
@@ -90,6 +94,9 @@ export default function Home() {
           </Button>
           <Button variant="contained" onClick={onWasteListClick}>
             Waste List
+          </Button>
+          <Button variant="contained" onClick={onTestClick}>
+            Test
           </Button>
         </Stack>
       </Box>

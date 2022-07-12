@@ -49,6 +49,12 @@ export default function AppNavigation(props) {
           </ListItemIcon>
           <ListItemText primary="Waste Items" />
         </ListItemButton>
+        <ListItemButton onClick={() => onListItemButtonClick(ROUTES.TEST)}>
+          <ListItemIcon>
+            <FormatListBulletedIcon />
+          </ListItemIcon>
+          <ListItemText primary="Admin" />
+        </ListItemButton>
       </List>
     </Drawer>
   );
