@@ -28,6 +28,10 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
+  const onLead2ChangeClick = () => {
+    navigate(ROUTES.LEAD_2_CHANGE);
+  };
+
   return (
     <Container maxWidth="sm">
       <Box
@@ -90,6 +94,9 @@ export default function Home() {
           </Button>
           <Button variant="contained" onClick={onWasteListClick}>
             Waste List
+          </Button>
+          <Button variant="contained" onClick={onLead2ChangeClick}>
+            Lead 2 Change
           </Button>
         </Stack>
       </Box>

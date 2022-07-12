@@ -3,6 +3,8 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@emotion/react';
 
 export default function StudentsList(props) {
   const { students, archiveStudentHandler, updateStudentHandler } = props;
@@ -14,7 +16,20 @@ export default function StudentsList(props) {
   const updateStudent = (event) => {
     updateStudentHandler(event.target.value);
   };
-
+  const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
+    palette: {
+      primary: {
+        main: '#0971f1',
+      },
+      neutral: {
+        main: '#64748B',
+        contrastText: '#fff',
+      },
+    },
+  });
   return (
     <Box sx={{ mt: 3 }}>
       <Grid container spacing={2}>

@@ -142,6 +142,7 @@ export default function AddWaste(props) {
       >
         Add Waste
       </Button>
+      <Button>Hey</Button>
     </Box>
   );
 }

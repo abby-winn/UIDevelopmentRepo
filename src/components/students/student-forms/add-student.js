@@ -3,91 +3,32 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@emotion/react';
 
 export default function AddStudent(props) {
-  const {
-    firstName,
-    lastName,
-    birthDate,
-    cellPhone,
-    emailAddress,
-    onFirstNameChange,
-    onLastNameChange,
-    onBirthDateChange,
-    onCellPhoneChange,
-    onEmailAddressChange,
-    onSubmit,
-  } = props;
-
-  const onSubmitDisabled =
-    !firstName || !lastName || !birthDate || !cellPhone || !emailAddress;
-
-  const addStudentHandler = (event) => {
-    event.preventDefault();
-    onSubmit(firstName, lastName, birthDate, cellPhone, emailAddress);
-  };
+  const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
+    palette: {
+      primary: {
+        main: '#0971f1',
+      },
+      neutral: {
+        main: '#64748B',
+        contrastText: '#fff',
+      },
+    },
+  });
 
   return (
     <Box sx={{ mt: 3 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            label="First Name"
-            onChange={(event) => onFirstNameChange(event.target.value)}
-            required
-            value={firstName}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            label="Last Name"
-            onChange={(event) => onLastNameChange(event.target.value)}
-            required
-            value={lastName}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            label="Date of Birth"
-            onChange={(event) => onBirthDateChange(event.target.value)}
-            required
-            type="date"
-            value={birthDate}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            label="Cell Phone Number"
-            onChange={(event) => onCellPhoneChange(event.target.value)}
-            required
-            value={cellPhone}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            label="Email Address"
-            onChange={(event) => onEmailAddressChange(event.target.value)}
-            required
-            type="email"
-            value={emailAddress}
-          />
-        </Grid>
-      </Grid>
-      <Button
-        disabled={onSubmitDisabled}
-        fullWidth
-        sx={{ mt: 3, mb: 2 }}
-        type="submit"
-        onClick={addStudentHandler}
-        variant="contained"
-      >
-        Add Student
-      </Button>
+      <ThemeProvider theme={theme}>
+        <Button color="primary" variant="contained">
+          + Register Admin
+        </Button>
+      </ThemeProvider>
     </Box>
   );
 }
