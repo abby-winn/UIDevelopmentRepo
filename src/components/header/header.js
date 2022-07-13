@@ -2,6 +2,7 @@
 import Navbar from './navbar';
 import Title from './title';
 import Admin from './registerAdmin';
+import Inactive from './inactiveAdmin';
 
 export default function header(){
 
@@ -11,6 +12,7 @@ export default function header(){
             <Navbar />
             <Title />
             <Admin /> 
+            <Inactive />
         </div>
     );
 }
