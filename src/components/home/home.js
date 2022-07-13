@@ -95,9 +95,6 @@ export default function Home() {
           <Button variant="contained" onClick={onWasteListClick}>
             Waste List
           </Button>
-          <Button variant="contained" onClick={onHeaderClick}>
-           Header
-          </Button>
         </Stack>
       </Box>
     </Container>
