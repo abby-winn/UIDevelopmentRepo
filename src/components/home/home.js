@@ -28,6 +28,10 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
+  const onHeaderClick = () => {
+    navigate(ROUTES.HEADER);
+  };
+
   return (
     <Container maxWidth="sm">
       <Box
