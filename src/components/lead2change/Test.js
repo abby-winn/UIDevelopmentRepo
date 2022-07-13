@@ -3,9 +3,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { createTheme } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function BasicModal() {
   const [open, setOpen] = useState(false);
@@ -16,7 +17,7 @@ export default function BasicModal() {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    width: 400,
+    width: 430,
     transform: 'translate(-50%, -50%)',
     bgcolor: 'background.paper',
     borderRadius: '10px',
@@ -33,43 +34,20 @@ export default function BasicModal() {
 
   const modalWarningStyle = {
     fontSize: 20,
-    color: 'red',
+    color: '#FF4D4D',
     textAlign: 'center',
     fontFamily: 'calibri',
-    p: 2,
-  };
-
-  const modalHeadingStyle = {
-    bgcolor: '#004cbb',
-    borderRadius: '10px 10px 0px 0px',
-  };
-
-  const modalHeading = {
-    textAlign: 'center',
-    fontFamily: 'Calibri',
-    fontSize: 20,
-    p: 2,
-    color: 'white',
-  };
-
-  const xButton = {
-    color: 'white',
-    buttonAlign: 'right',
-  };
-
-  const buttonAlign = {
-    textAlign: 'center',
-    p: 2,
+    p: 1,
   };
 
   const buttonTheme = createTheme({
     palette: {
       delete: {
-        main: '#e82315',
+        main: '#FF4D4D',
         contrastText: '#fff',
       },
       cancel: {
-        main: '#004cbb',
+        main: '#3764A8',
         contrastText: '#fff',
       },
     },
@@ -87,40 +65,82 @@ export default function BasicModal() {
         onClick={handleOpen}
         variant="contained"
       >
-        Delete
+        <Typography padding="5px">Delete</Typography>
       </Button>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <Typography sx={modalHeadingStyle}>
-            <Typography sx={modalHeading}>
-              Delete Admin
-              <Button sx={xButton} onClick={handleClose}>
-                X
-              </Button>
-            </Typography>
-          </Typography>
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Grid item xs={12} sx={{ borderRadius: '10px' }}>
+              <Box
+                bgcolor="#3764A8"
+                sx={{
+                  borderTopLeftRadius: '10px',
+                  borderTopRightRadius: '10px',
+                }}
+              >
+                <Typography
+                  textAlign="center"
+                  color="white"
+                  variant="h4"
+                  fontWeight="bold"
+                  padding="10px"
+                >
+                  Register New Admin
+                </Typography>
+                <IconButton
+                  onClick={handleClose}
+                  sx={{ position: 'absolute', right: 8, top: 8 }}
+                >
+                  <CloseIcon fontSize="large" sx={{ color: 'white' }} />
+                </IconButton>
+              </Box>
+            </Grid>
+          </Grid>
+
           <Typography sx={modalTextStyle}>
             Are you sure you want to delete this administrative account?
           </Typography>
           <Typography sx={modalWarningStyle}>All data will be lost.</Typography>
-          <Typography sx={buttonAlign}>
-            <Button
-              theme={buttonTheme}
-              color="delete"
-              variant="contained"
-              onClick={handleClose}
-            >
-              Delete
-            </Button>
-            <Button
-              theme={buttonTheme}
-              color="cancel"
-              variant="contained"
-              onClick={handleClose}
-            >
-              Cancel
-            </Button>
-          </Typography>
+
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            justifyContent="center"
+            padding="20px"
+            align="center"
+          >
+            <Grid item xs={4}>
+              <Box>
+                <Button
+                  theme={buttonTheme}
+                  color="delete"
+                  variant="contained"
+                  onClick={handleClose}
+                >
+                  <Typography padding="5px">Delete</Typography>
+                </Button>
+              </Box>
+            </Grid>
+
+            <Grid item xs={4} sx={{ borderRadius: '10px' }}>
+              <Box>
+                <Button
+                  theme={buttonTheme}
+                  color="cancel"
+                  variant="contained"
+                  onClick={handleClose}
+                >
+                  <Typography padding="5px">Cancel</Typography>
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
       </Modal>
     </div>
