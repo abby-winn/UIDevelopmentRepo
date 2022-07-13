@@ -4,6 +4,7 @@ import Title from './title';
 import Admin from './registerAdmin';
 import Inactive from './inactiveAdmin';
 import Delete from './deleteAdmin';
+import Edit from './edit-modal';
 
 export default function header(){
 
@@ -15,6 +16,7 @@ export default function header(){
             <Admin /> 
             <Inactive />
             <Delete />
+            <Edit />
         </div>
     );
 }
