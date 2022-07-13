@@ -28,6 +28,10 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
+  const onHeaderClick = () => {
+    navigate(ROUTES.HEADER);
+  };
+
   return (
     <Container maxWidth="sm">
       <Box
@@ -90,6 +94,9 @@ export default function Home() {
           </Button>
           <Button variant="contained" onClick={onWasteListClick}>
             Waste List
+          </Button>
+          <Button variant="contained" onClick={onHeaderClick}>
+           Header
           </Button>
         </Stack>
       </Box>

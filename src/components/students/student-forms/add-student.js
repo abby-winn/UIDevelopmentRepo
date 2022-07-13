@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
+import AddAdmin from './add-admin';
 
 export default function AddStudent(props) {
   const {
@@ -88,6 +89,8 @@ export default function AddStudent(props) {
       >
         Add Student
       </Button>
+    
+      <AddAdmin />
     </Box>
   );
 }
