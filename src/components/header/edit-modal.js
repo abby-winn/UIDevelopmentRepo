@@ -31,17 +31,11 @@ export default function Students() {
   const handleOpen = () => {
     setOpen(true);
   };
-  const textHeading = createTheme({
-    typography: {
-      fontFamily: 'Calibri',
-      fontSize: 15,
-    },
-  });
 
   const buttonTheme = createTheme({
     palette: {
       delete: {
-        main: '#FF4D4D',
+        main: '#18A558',
         contrastText: '#fff',
       },
       cancel: {
@@ -53,6 +47,10 @@ export default function Students() {
       fontFamily: 'Calibri',
       fontSize: 20,
     },
+  });
+
+  const boxTheme = createTheme({
+    paper: { minWidth: '300px' },
   });
 
   // const updateAdmin = (event) => {
