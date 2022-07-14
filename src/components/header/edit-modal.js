@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { indigo, green, lightBlue, grey } from '@mui/material/colors';
-import UpdateAdmin from './update-admin';
+// import UpdateAdmin from './update-admin';
 
 export default function Students() {
   // const [firstName, setFirstName] = useState('');

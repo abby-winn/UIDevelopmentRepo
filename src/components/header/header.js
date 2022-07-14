@@ -3,6 +3,8 @@ import Navbar from './navbar';
 import Title from './title';
 import Admin from './registerAdmin';
 import Inactive from './inactiveAdmin';
+import Edit from './edit-modal';
+import Delete from './deleteAdmin';
 import AdminTable from './AdminTable';
 
 export default function header(){
@@ -15,6 +17,8 @@ export default function header(){
             <Admin /> 
             <AdminTable />
             <Inactive />
+            <Delete />
+            <Edit />
         </div>
     );
 }
