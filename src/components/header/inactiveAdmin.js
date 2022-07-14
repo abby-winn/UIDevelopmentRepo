@@ -21,7 +21,7 @@ export default function inactiveAdmin() {
     position: 'absolute', 
     top: '50%', 
     left: '50%', 
-    width: 500, 
+    width: 430, 
     transform: 'translate(-50%, -50%)', 
     bgcolor: 'background.paper', 
     borderRadius: '10px', 
@@ -29,58 +29,28 @@ export default function inactiveAdmin() {
   }; 
  
   const modalTextStyle = { 
-    fontSize: 30, 
+    fontSize: 20, 
     color: 'grey', 
     p: 2, 
     fontFamily: 'calibri', 
     textAlign: 'center', 
   }; 
  
-  const modalWarningStyle = { 
-    fontSize: 20, 
-    color: 'red', 
-    textAlign: 'center', 
-    fontFamily: 'calibri', 
-    p: 2, 
-  }; 
- 
-  const modalHeadingStyle = { 
-    bgcolor: '#004cbb', 
-    borderRadius: '10px 10px 0px 0px', 
-  }; 
- 
-  const modalHeading = { 
-    textAlign: 'center', 
-    fontFamily: 'Calibri', 
-    fontSize: 20, 
-    p: 2, 
-    color: 'white', 
-  }; 
- 
-  const xButton = { 
-    color: 'white', 
-    buttonAlign: 'right', 
-  }; 
- 
-  const buttonAlign = { 
-    textAlign: 'center', 
-    p: 2, 
-  }; 
- 
+
   const buttonTheme = createTheme({ 
     palette: { 
       delete: { 
-        main: '#e82315', 
+        main: 'orange', 
         contrastText: '#fff', 
       }, 
       cancel: { 
-        main: '#004cbb', 
+        main: '#3764A8', 
         contrastText: '#fff', 
       }, 
     }, 
     typography: { 
       fontFamily: 'Calibri', 
-      fontSize: 20, 
+      fontSize: 18, 
     }, 
   }); 
  
@@ -99,7 +69,7 @@ export default function inactiveAdmin() {
             <Grid container spacing={0}  alignItems="center" justifyContent="center">
                 <Grid item xs={12} sx={{borderRadius: '10px'}}>
                     <Box bgcolor='#3764A8'  sx={{borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}} >
-                        <Typography textAlign= 'center' color='white' variant='h3' fontWeight='bold'>Inactivate Admin</Typography>
+                        <Typography textAlign= 'center' color='white' variant='h4' fontWeight='bold' padding='10px'>Inactivate Admin</Typography>
                         <IconButton onClick={handleClose} sx={{ position: 'absolute', right: 3,top: 3,}}>
                             <CloseIcon fontSize="large" sx={{color: 'white'}}/>
                         </IconButton>
@@ -110,16 +80,18 @@ export default function inactiveAdmin() {
                         Are you sure you want to turn this administrative account inactive? 
                     </Typography>
                 </Grid> 
-                <Grid container spacing={2}  alignItems="center" justifyContent="center" sx={{marginLeft: '0px', padding: '10px'}}>
+                <Grid container spacing={2}  alignItems="center" justifyContent="center" sx={{marginLeft: '0px', padding: '20px'}}>
                     <Grid item xs={5}>
                         <Box display="flex"
                         justifyContent="center"
                         alignItems="center">
                             <Button 
                             theme={buttonTheme} 
-                            sx={{bgcolor: 'green'}}
+                            sx={{bgcolor: 'orange'}}
                             variant="contained" 
                             onClick={handleClose} 
+                            textAlign="center"
+                            padding="10px"
                             > 
                             Confirm 
                             </Button>
@@ -136,6 +108,8 @@ export default function inactiveAdmin() {
                             variant="contained" 
                             onClick={handleClose}
                             sx={{width: '110px'}}
+                            textAlign="center"
+                            padding="10px"
                             > 
                             Cancel 
                             </Button>

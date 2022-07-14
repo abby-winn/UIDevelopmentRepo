@@ -9,11 +9,11 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { createTheme } from '@mui/material/styles';
 import { indigo, green, lightBlue, grey } from '@mui/material/colors';
 // import UpdateAdmin from './update-admin';
 
 export default function Students() {
-
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -23,9 +23,28 @@ export default function Students() {
   const handleOpen = () => {
     setOpen(true);
   };
+
+  const buttonTheme = createTheme({
+    palette: {
+      register: {
+        main: '#3764A8',
+        contrastText: '#fff',
+      },
+    },
+    typography: {
+      fontFamily: 'Calibri',
+      fontSize: 18,
+    },
+  });
+
   return (
     <Container maxWidth="sm">
-      <Button color="primary" variant="contained" onClick={handleOpen}>
+      <Button
+        theme={buttonTheme}
+        color="register"
+        variant="contained"
+        onClick={handleOpen}
+      >
         + Register Admin
       </Button>
       {/* <UpdateAdmin onSubmit={updateModalChange} handleClose={handleClose} /> */}
@@ -33,28 +52,39 @@ export default function Students() {
         <DialogTitle
           center
           sx={{
-            backgroundColor: indigo[500],
+            backgroundColor: '#3764A8',
             color: 'white',
           }}
         >
-          <Grid container spacing={2}>
-            <Grid item xs={3} />
-            <Grid item xs={10} sm={6}>
-              <Typography variant="h4" align="center" sx={{ fontWeight: 500 }}>
+          <Grid item xs={12} sx={{ borderRadius: '10px' }}>
+            <Box
+              bgcolor="#3764A8"
+              sx={{
+                borderTopLeftRadius: '10px',
+                borderTopRightRadius: '10px',
+              }}
+            >
+              <Typography
+                textAlign="center"
+                color="white"
+                variant="h4"
+                fontWeight="bold"
+                padding="10px"
+              >
                 Register Admin
               </Typography>
               <IconButton
                 onClick={handleClose}
-                sx={{ position: 'absolute', right: 8, top: 10 }}
+                sx={{ position: 'absolute', right: 8, top: 8 }}
               >
                 <CloseIcon fontSize="large" sx={{ color: 'white' }} />
               </IconButton>
-            </Grid>
+            </Box>
           </Grid>
         </DialogTitle>
 
         <DialogActions>
-          <Box sx={{ mt: 3 }}>
+          <Box sx={{ mt: 1 }}>
             <Grid container spacing={2} rowSpacing={1}>
               <Grid item xs={12} sm={6}>
                 <Typography
@@ -186,7 +216,7 @@ export default function Students() {
                   }}
                 />
               </Grid>
-              <Grid item xs={12} sx={{marginBottom: 2, marginTop: 2 }}>
+              <Grid item xs={12} sx={{ marginBottom: 2, marginTop: 2 }}>
                 <Button
                   fullWidth
                   variant="contained"
@@ -195,7 +225,7 @@ export default function Students() {
                     borderRadius: 2,
                     backgroundColor: lightBlue[200],
                     color: 'white',
-                    fontSize: '30px'
+                    fontSize: '30px',
                   }}
                 >
                   Register

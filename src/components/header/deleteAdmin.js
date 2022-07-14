@@ -91,7 +91,7 @@ export default function deleteAdmin() {
                   fontWeight="bold"
                   padding="10px"
                 >
-                  Register New Admin
+                  Delete Admin
                 </Typography>
                 <IconButton
                   onClick={handleClose}

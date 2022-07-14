@@ -17,8 +17,6 @@ export default function header(){
             <Admin /> 
             <AdminTable />
             <Inactive />
-            <Delete />
-            <Edit />
         </div>
     );
 }

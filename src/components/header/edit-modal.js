@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { createTheme } from '@mui/material/styles';
 import { indigo, green, lightBlue, grey } from '@mui/material/colors';
 // import UpdateAdmin from './update-admin';
 
@@ -30,6 +31,29 @@ export default function Students() {
   const handleOpen = () => {
     setOpen(true);
   };
+  const textHeading = createTheme({
+    typography: {
+      fontFamily: 'Calibri',
+      fontSize: 15,
+    },
+  });
+
+  const buttonTheme = createTheme({
+    palette: {
+      delete: {
+        main: '#FF4D4D',
+        contrastText: '#fff',
+      },
+      cancel: {
+        main: '#3764A8',
+        contrastText: '#fff',
+      },
+    },
+    typography: {
+      fontFamily: 'Calibri',
+      fontSize: 20,
+    },
+  });
 
   // const updateAdmin = (event) => {
   //   updateAdminHandler(event.target.value);
@@ -80,35 +104,38 @@ export default function Students() {
       </IconButton>
       {/* <UpdateAdmin onSubmit={updateModalChange} handleClose={handleClose} /> */}
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle
-          center
-          sx={{
-            backgroundColor: indigo[500],
-            color: 'white',
-          }}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={3} />
-            <Grid item xs={10} sm={6}>
-              <Typography variant="h4" align="center" sx={{ fontWeight: 500 }}>
-                Edit Admin
-              </Typography>
-              <IconButton
-                onClick={handleClose}
-                sx={{ position: 'absolute', right: 8, top: 10 }}
-              >
-                <CloseIcon fontSize="large" sx={{ color: 'white' }} />
-              </IconButton>
-            </Grid>
-          </Grid>
-        </DialogTitle>
+        <Grid item xs={12} sx={{ borderRadius: '10px' }}>
+          <Box
+            bgcolor="#3764A8"
+            sx={{
+              borderTopLeftRadius: '10px',
+              borderTopRightRadius: '10px',
+            }}
+          >
+            <Typography
+              textAlign="center"
+              color="white"
+              variant="h4"
+              fontWeight="bold"
+              padding="10px"
+            >
+              Edit Admin
+            </Typography>
+            <IconButton
+              onClick={handleClose}
+              sx={{ position: 'absolute', right: 8, top: 8 }}
+            >
+              <CloseIcon fontSize="large" sx={{ color: 'white' }} />
+            </IconButton>
+          </Box>
+        </Grid>
 
         <DialogActions>
-          <Box sx={{ mt: 3 }}>
-            <Grid container spacing={2} rowSpacing={1}>
+          <Box sx={{ mt: 1 }}>
+            <Grid container spacing={2} rowSpacing={2}>
               <Grid item xs={12} sm={6}>
                 <Typography
-                  variant="subtitle1"
+                  theme={textHeading}
                   align="left"
                   sx={{ fontWeight: 'Medium' }}
                 >
@@ -117,7 +144,7 @@ export default function Students() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography
-                  variant="subtitle1"
+                  theme={textHeading}
                   align="left"
                   sx={{ fontWeight: 'Medium' }}
                 >
@@ -150,9 +177,9 @@ export default function Students() {
                   // value={lastName}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
+              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
                 <Typography
-                  variant="subtitle1"
+                  theme={textHeading}
                   align="left"
                   sx={{ fontWeight: 'Medium' }}
                 >
@@ -172,9 +199,9 @@ export default function Students() {
                   // value={email}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
+              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
                 <Typography
-                  variant="subtitle1"
+                  theme={textHeading}
                   align="left"
                   sx={{ fontWeight: 'Medium' }}
                 >
@@ -194,9 +221,9 @@ export default function Students() {
                   // value={username}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
+              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
                 <Typography
-                  variant="subtitle1"
+                  theme={textHeading}
                   align="left"
                   sx={{ fontWeight: 'Medium' }}
                 >
@@ -216,9 +243,9 @@ export default function Students() {
                   // value={password}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
+              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
                 <Typography
-                  variant="subtitle1"
+                  theme={textHeading}
                   align="left"
                   sx={{ fontWeight: 'Medium' }}
                 >
@@ -236,33 +263,40 @@ export default function Students() {
                   }}
                 />
               </Grid>
-              <Grid item xs={6} sx={{ marginTop: 6, marginBottom: 2 }}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  // onClick={updateAdminHandler}
-                  sx={{
-                    borderRadius: 2,
-                    backgroundColor: green[500],
-                    color: 'white',
-                  }}
-                >
-                  Save
-                </Button>
-              </Grid>
-              <Grid item xs={6} sx={{ marginTop: 6, marginBottom: 2 }}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  onClick={handleClose}
-                  sx={{
-                    borderRadius: 2,
-                    backgroundColor: lightBlue[200],
-                    color: 'white',
-                  }}
-                >
-                  Cancel
-                </Button>
+
+              <Grid
+                container
+                spacing={2}
+                alignItems="center"
+                justifyContent="center"
+                padding="20px"
+                align="center"
+              >
+                <Grid item xs={4}>
+                  <Box>
+                    <Button
+                      theme={buttonTheme}
+                      color="delete"
+                      variant="contained"
+                      onClick={handleClose}
+                    >
+                      <Typography padding="5px">Delete</Typography>
+                    </Button>
+                  </Box>
+                </Grid>
+
+                <Grid item xs={4} sx={{ borderRadius: '10px' }}>
+                  <Box>
+                    <Button
+                      theme={buttonTheme}
+                      color="cancel"
+                      variant="contained"
+                      onClick={handleClose}
+                    >
+                      <Typography padding="5px">Cancel</Typography>
+                    </Button>
+                  </Box>
+                </Grid>
               </Grid>
             </Grid>
           </Box>
