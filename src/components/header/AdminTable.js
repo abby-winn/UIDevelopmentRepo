@@ -6,8 +6,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
 import SearchBar from './SearchBar';
+import DeleteAdmin from './deleteAdmin';
+import EditModal from './edit-modal';
+import InactiveAdmin from './inactiveAdmin';
+import RegisterAdmin from './registerAdmin';
 
 function createData(name, username, email) {
   return { name, username, email };
@@ -110,12 +114,14 @@ export default function AdminTable() {
                 }
               >
                 <TableCell component="th" scope="row">
-                  <Button variant="contained">Delete</Button> {row.name}
+                  <Typography>
+                    <EditModal /> {row.name}
+                  </Typography>
                 </TableCell>
                 <TableCell align="center">{row.username}</TableCell>
                 <TableCell align="center">{row.email}</TableCell>
                 <TableCell align="center">
-                  <Button variant="contained">Delete</Button>
+                  <DeleteAdmin />
                 </TableCell>
               </TableRow>
             ))}
