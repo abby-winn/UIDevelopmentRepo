@@ -108,8 +108,8 @@ export default function Students() {
           <Box
             bgcolor="#3764A8"
             sx={{
-              borderTopLeftRadius: '10px',
-              borderTopRightRadius: '10px',
+              borderTopLeftRadius: '4px',
+              borderTopRightRadius: '4px',
             }}
           >
             <Typography
@@ -133,25 +133,7 @@ export default function Students() {
         <DialogActions>
           <Box sx={{ mt: 1 }}>
             <Grid container spacing={2} rowSpacing={2}>
-              <Grid item xs={12} sm={6}>
-                <Typography
-                  theme={textHeading}
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  First Name
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Typography
-                  theme={textHeading}
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Last Name
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={6} sm={6}>
                 <TextField
                   fullWidth
                   label="Enter first name..."
@@ -164,7 +146,7 @@ export default function Students() {
                   // value={firstName}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={6} sm={6}>
                 <TextField
                   fullWidth
                   label="Enter last name..."
@@ -177,15 +159,7 @@ export default function Students() {
                   // value={lastName}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
-                <Typography
-                  theme={textHeading}
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Email Address
-                </Typography>
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -199,15 +173,7 @@ export default function Students() {
                   // value={email}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
-                <Typography
-                  theme={textHeading}
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Username
-                </Typography>
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -221,15 +187,7 @@ export default function Students() {
                   // value={username}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
-                <Typography
-                  theme={textHeading}
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Password
-                </Typography>
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -243,15 +201,7 @@ export default function Students() {
                   // value={password}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 1 }}>
-                <Typography
-                  theme={textHeading}
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Confirm Password
-                </Typography>
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -269,7 +219,7 @@ export default function Students() {
                 spacing={2}
                 alignItems="center"
                 justifyContent="center"
-                padding="20px"
+                padding="10px"
                 align="center"
               >
                 <Grid item xs={4}>
@@ -280,7 +230,7 @@ export default function Students() {
                       variant="contained"
                       onClick={handleClose}
                     >
-                      <Typography padding="5px">Delete</Typography>
+                      <Typography padding="5px">Save</Typography>
                     </Button>
                   </Box>
                 </Grid>
