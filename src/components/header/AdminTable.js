@@ -38,7 +38,7 @@ export default function AdminTable() {
       />
       <TableContainer
         component={Paper}
-        align="center"
+        align="left"
         sx={{
           backgroundColor: '#3764A8',
           color: 'white',
@@ -65,17 +65,22 @@ export default function AdminTable() {
               }}
             >
               <TableCell
-                align="center"
+                align="left"
                 sx={{
                   color: 'white',
                   fontSize: 'large',
                 }}
               >
-                Name
+              <Grid container>
+                <Grid item xs={6} />
+                <Grid item xs={2}>
+                  Name
+                </Grid>
+              </Grid>
               </TableCell>
 
               <TableCell
-                align="center"
+                align="left"
                 sx={{
                   color: 'white',
                   fontSize: 'large',
@@ -85,7 +90,7 @@ export default function AdminTable() {
               </TableCell>
 
               <TableCell
-                align="center"
+                align="left"
                 sx={{
                   color: 'white',
                   fontSize: 'large',
@@ -95,7 +100,7 @@ export default function AdminTable() {
               </TableCell>
 
               <TableCell
-                align="center"
+                align="left"
                 sx={{
                   color: 'white',
                   fontSize: 'large',
@@ -116,7 +121,7 @@ export default function AdminTable() {
                 }
               >
                 <TableCell component="th" scope="row">
-                  <Grid container>
+                  <Grid container alignItems="center" justify="center">
                     <Grid item xs={6}>
                       <Box>
                         <EditModal />
@@ -126,14 +131,14 @@ export default function AdminTable() {
                     <Grid item xs={2}>
                       <Box>
                         {row.name}
-                        <Typography />
+                        <Typography/>
                       </Box>
                     </Grid>
                   </Grid>
                 </TableCell>
-                <TableCell align="center">{row.username}</TableCell>
-                <TableCell align="center">{row.email}</TableCell>
-                <TableCell align="center">
+                <TableCell align="left">{row.username}</TableCell>
+                <TableCell align="left">{row.email}</TableCell>
+                <TableCell align="left">
                   <DeleteAdmin />
                 </TableCell>
               </TableRow>
