@@ -7,6 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import SearchBar from './SearchBar';
 import DeleteAdmin from './deleteAdmin';
 import EditModal from './edit-modal';
@@ -114,9 +116,20 @@ export default function AdminTable() {
                 }
               >
                 <TableCell component="th" scope="row">
-                  <Typography>
-                    <EditModal /> {row.name}
-                  </Typography>
+                  <Grid container>
+                    <Grid item xs={6}>
+                      <Box>
+                        <EditModal />
+                        <Typography />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={2}>
+                      <Box>
+                        {row.name}
+                        <Typography />
+                      </Box>
+                    </Grid>
+                  </Grid>
                 </TableCell>
                 <TableCell align="center">{row.username}</TableCell>
                 <TableCell align="center">{row.email}</TableCell>
