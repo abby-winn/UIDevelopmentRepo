@@ -14,7 +14,7 @@ export default function header(){
         <div>
             <Navbar />
             <Title />
-            <Admin /> 
+            <Admin/>
             <AdminTable />
             <Inactive />
         </div>

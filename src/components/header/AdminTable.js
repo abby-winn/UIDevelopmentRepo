@@ -32,21 +32,18 @@ export default function AdminTable() {
     <>
       <SearchBar
         sx={{
-          align: 'left',
-          marginLeft: '2%',
         }}
       />
       <TableContainer
         component={Paper}
-        align="left"
+        align="center"
         sx={{
           backgroundColor: '#3764A8',
           color: 'white',
           fontSize: 'large',
-          width: '1000px',
-          marginTop: '2%',
-          marginLeft: '15%',
-          marginRight: '15%',
+          width: '50%',
+          marginLeft: '25%',
+          marginRight: '25%',
         }}
       >
         <Table aria-label="customized table">
