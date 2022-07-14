@@ -219,7 +219,10 @@ export default function Students() {
                 spacing={2}
                 alignItems="center"
                 justifyContent="center"
-                padding="10px"
+                paddingTop="10px"
+                paddingBottom="10px"
+                marginTop="0px"
+                marginLeft="0px"
                 align="center"
               >
                 <Grid item xs={4}>

@@ -1,240 +1,146 @@
-import Container from '@mui/material/Container';
-import { useState, useEffect } from 'react';
-import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
-import CloseIcon from '@mui/icons-material/Close';
-import { Dialog, DialogTitle, DialogActions } from '@mui/material';
+/* eslint-disable prettier/prettier */
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React from 'react';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 import { createTheme } from '@mui/material/styles';
-import { indigo, green, lightBlue, grey } from '@mui/material/colors';
-// import UpdateAdmin from './update-admin';
+import { ThemeProvider } from '@emotion/react';
 
-export default function Students() {
-  const [open, setOpen] = useState(false);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const buttonTheme = createTheme({
+export default function RegisterAdmin() {
+  const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
     palette: {
-      register: {
-        main: '#3764A8',
+      primary: {
+        main: '#0971f1',
+      },
+      neutral: {
+        main: '#64748B',
         contrastText: '#fff',
       },
     },
-    typography: {
-      fontFamily: 'Calibri',
-      fontSize: 18,
-    },
   });
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'white',
+    borderRadius: '12px',
+    width: '50%',
+    mt: '3',
+  };
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <Container maxWidth="sm">
-      <Button
-        theme={buttonTheme}
-        color="register"
-        variant="contained"
-        onClick={handleOpen}
-      >
+      {/* <ThemeProvider theme={theme}> */}
+      <Button color="primary" variant="contained" onClick={handleOpen}>
         + Register Admin
       </Button>
-      {/* <UpdateAdmin onSubmit={updateModalChange} handleClose={handleClose} /> */}
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle
-          center
-          sx={{
-            backgroundColor: '#3764A8',
-            color: 'white',
-          }}
+        <Modal
+            onClose={handleClose}
+            open={open}
+            fullWidth='md'
         >
-          <Grid item xs={12} sx={{ borderRadius: '10px' }}>
-            <Box
-              bgcolor="#3764A8"
-              sx={{
-                borderTopLeftRadius: '10px',
-                borderTopRightRadius: '10px',
-              }}
-            >
-              <Typography
-                textAlign="center"
-                color="white"
-                variant="h4"
-                fontWeight="bold"
-                padding="10px"
-              >
-                Register Admin
-              </Typography>
-              <IconButton
-                onClick={handleClose}
-                sx={{ position: 'absolute', right: 8, top: 8 }}
-              >
-                <CloseIcon fontSize="large" sx={{ color: 'white' }} />
-              </IconButton>
-            </Box>
-          </Grid>
-        </DialogTitle>
-
-        <DialogActions>
-          <Box sx={{ mt: 1 }}>
-            <Grid container spacing={2} rowSpacing={1}>
-              <Grid item xs={12} sm={6}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  First Name
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Last Name
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Enter first name..."
-                  variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
-                  // onChange={firstNameChangeHandler}
-                  // value={firstName}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Enter last name..."
-                  variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
-                  // onChange={lastNameChangeHandler}
-                  // value={lastName}
-                />
-              </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Email Address
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Enter email address..."
-                  variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
-                  // onChange={emailChangeHandler}
-                  // value={email}
-                />
-              </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Username
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Enter username..."
-                  variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
-                  // onChange={usernameChangeHandler}
-                  // value={username}
-                />
-              </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Password
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Enter password..."
-                  variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
-                  // onChange={passwordChangeHandler}
-                  // value={password}
-                />
-              </Grid>
-              <Grid item xs={12} sm={12} sx={{ marginTop: 4 }}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  sx={{ fontWeight: 'Medium' }}
-                >
-                  Confirm Password
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Enter same password..."
-                  variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sx={{ marginBottom: 2, marginTop: 2 }}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  onClick={handleClose}
-                  sx={{
-                    borderRadius: 2,
-                    backgroundColor: lightBlue[200],
-                    color: 'white',
-                    fontSize: '30px',
-                  }}
-                >
-                  Register
-                </Button>
-              </Grid>
+        <Box sx={style}>
+            <Grid container spacing={2}  alignItems="center" justifyContent="center">
+                <Grid item xs={12} sx={{borderRadius: '12px'}}>
+                    <Box bgcolor='#3764A8'  sx={{borderTopLeftRadius: '12px', borderTopRightRadius: '12px'}} >
+                        <Typography textAlign= 'center' color='white' variant='h2' fontWeight='bold'>Register New Admin</Typography>
+                        <IconButton onClick={handleClose} sx={{ position: 'absolute', right: 8,top: 8,}}>
+                            <CloseIcon fontSize="large" sx={{color: 'white'}}/>
+                        </IconButton>
+                    </Box>
+                </Grid>
+                <Grid container sx={{padding: '10px', paddingLeft:'5px', marginLeft: '0px'}} spacing={3}>
+                    <Grid item xs={12} sm={6}>
+                        <Paper>
+                            <TextField
+                                fullWidth
+                                sx={{bgcolor: '#F5F5F5'}}
+                                label="First Name"
+                            />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <Paper>
+                            <TextField
+                                fullWidth
+                                sx={{bgcolor: '#F5F5F5'}}
+                                label="Last Name"
+                            />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Paper>
+                            <TextField
+                                fullWidth
+                                sx={{bgcolor: '#F5F5F5'}}
+                                label="Email Address"
+                                type="email"
+                            />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Paper>
+                            <TextField
+                                fullWidth
+                                sx={{bgcolor: '#F5F5F5'}}
+                                label="Username"
+                            />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Paper>
+                            <TextField
+                                fullWidth
+                                sx={{bgcolor: '#F5F5F5'}}
+                                label="Password"
+                                type="password"
+                            />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Paper>
+                            <TextField
+                                fullWidth
+                                sx={{bgcolor: '#F5F5F5'}}
+                                label="Confirm Password"
+                                type="password"
+                            />
+                        </Paper>
+                    </Grid>
+                </Grid>
+            <Grid item xs={6} sx={{paddingTop: '0px'}}>  
+                <Box display="flex"
+                justifyContent="center"
+                alignItems="center">
+                    <Button
+                        sx={{ mt: 3, mb: 2, bgcolor:'#0AA7FF'}}
+                        type="submit"
+                        variant="contained"
+                        size="large"
+                    >
+                        <Typography sx={{padding: '10px'}} variant='h4' fontWeight='bold'>Register</Typography>
+                    </Button>
+                </Box>
             </Grid>
-          </Box>
-        </DialogActions>
-      </Dialog>
+        </Grid>
+        </Box>
+        </Modal>
+      {/* </ThemeProvider> */}
     </Container>
   );
 }
