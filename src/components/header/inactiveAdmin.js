@@ -69,7 +69,7 @@ export default function inactiveAdmin() {
             <Grid container spacing={0}  alignItems="center" justifyContent="center">
                 <Grid item xs={12} sx={{borderRadius: '10px'}}>
                     <Box bgcolor='#3764A8'  sx={{borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}} >
-                        <Typography textAlign= 'center' color='white' variant='h4' fontWeight='bold' padding='10px'>Inactivate Admin</Typography>
+                        <Typography textAlign= 'center' color='white' variant='h4' fontWeight='bold' padding='10px'>Deactivate Admin</Typography>
                         <IconButton onClick={handleClose} sx={{ position: 'absolute', right: 3,top: 3,}}>
                             <CloseIcon fontSize="large" sx={{color: 'white'}}/>
                         </IconButton>

@@ -103,7 +103,7 @@ export default function AdminTable() {
                   fontSize: 'large',
                 }}
               >
-                Delete
+                Deactivate
               </TableCell>
             </TableRow>
           </TableHead>
@@ -136,7 +136,7 @@ export default function AdminTable() {
                 <TableCell align="left">{row.username}</TableCell>
                 <TableCell align="left">{row.email}</TableCell>
                 <TableCell align="left">
-                  <DeleteAdmin />
+                  <InactiveAdmin />
                 </TableCell>
               </TableRow>
             ))}
