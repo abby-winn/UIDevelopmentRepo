@@ -31,12 +31,6 @@ export default function Students() {
   const handleOpen = () => {
     setOpen(true);
   };
-  const textHeading = createTheme({
-    typography: {
-      fontFamily: 'Calibri',
-      fontSize: 15,
-    },
-  });
 
   const buttonTheme = createTheme({
     palette: {
@@ -52,6 +46,14 @@ export default function Students() {
     typography: {
       fontFamily: 'Calibri',
       fontSize: 20,
+    },
+  });
+
+  const iconPositioning = createTheme({
+    Box: {
+      position: 'absolute',
+      right: '8',
+      top: '8',
     },
   });
 
@@ -104,14 +106,8 @@ export default function Students() {
       </IconButton>
       {/* <UpdateAdmin onSubmit={updateModalChange} handleClose={handleClose} /> */}
       <Dialog open={open} onClose={handleClose}>
-        <Grid item xs={12} sx={{ borderRadius: '10px' }}>
-          <Box
-            bgcolor="#3764A8"
-            sx={{
-              borderTopLeftRadius: '4px',
-              borderTopRightRadius: '4px',
-            }}
-          >
+        <Grid item xs={12}>
+          <Box bgcolor="#3764A8">
             <Typography
               textAlign="center"
               color="white"
@@ -121,9 +117,11 @@ export default function Students() {
             >
               Edit Admin
             </Typography>
+            <Typography>Hello</Typography>
             <IconButton
               onClick={handleClose}
               sx={{ position: 'absolute', right: 8, top: 8 }}
+              theme={iconPositioning}
             >
               <CloseIcon fontSize="large" sx={{ color: 'white' }} />
             </IconButton>
@@ -138,10 +136,7 @@ export default function Students() {
                   fullWidth
                   label="Enter first name..."
                   variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
+
                   // onChange={firstNameChangeHandler}
                   // value={firstName}
                 />
@@ -151,10 +146,6 @@ export default function Students() {
                   fullWidth
                   label="Enter last name..."
                   variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
                   // onChange={lastNameChangeHandler}
                   // value={lastName}
                 />
@@ -165,10 +156,6 @@ export default function Students() {
                   fullWidth
                   label="Enter email address..."
                   variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
                   // onChange={emailChangeHandler}
                   // value={email}
                 />
@@ -179,10 +166,6 @@ export default function Students() {
                   fullWidth
                   label="Enter username..."
                   variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
                   // onChange={usernameChangeHandler}
                   // value={username}
                 />
@@ -193,10 +176,6 @@ export default function Students() {
                   fullWidth
                   label="Enter password..."
                   variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
                   // onChange={passwordChangeHandler}
                   // value={password}
                 />
@@ -207,10 +186,6 @@ export default function Students() {
                   fullWidth
                   label="Enter same password..."
                   variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
                 />
               </Grid>
 

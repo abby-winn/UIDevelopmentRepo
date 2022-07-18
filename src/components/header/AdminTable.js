@@ -30,10 +30,12 @@ const rows = [
 export default function AdminTable() {
   return (
     <>
-      <SearchBar
-        sx={{
-        }}
-      />
+      <Grid container>
+        <RegisterAdmin />
+        <Grid item xs="12">
+          <SearchBar />
+        </Grid>
+      </Grid>
       <TableContainer
         component={Paper}
         align="center"
@@ -68,12 +70,12 @@ export default function AdminTable() {
                   fontSize: 'large',
                 }}
               >
-              <Grid container>
-                <Grid item xs={6} />
-                <Grid item xs={2}>
-                  Name
+                <Grid container>
+                  <Grid item xs={6} />
+                  <Grid item xs={2}>
+                    Name
+                  </Grid>
                 </Grid>
-              </Grid>
               </TableCell>
 
               <TableCell
@@ -128,7 +130,7 @@ export default function AdminTable() {
                     <Grid item xs={2}>
                       <Box>
                         {row.name}
-                        <Typography/>
+                        <Typography />
                       </Box>
                     </Grid>
                   </Grid>
