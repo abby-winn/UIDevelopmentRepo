@@ -1,24 +1,30 @@
 import Container from '@mui/material/Container';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
-import { Dialog, DialogTitle, DialogActions } from '@mui/material';
+import { Dialog, DialogActions } from '@mui/material';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { createTheme } from '@mui/material/styles';
-import { indigo, green, lightBlue, grey } from '@mui/material/colors';
+import { green, grey } from '@mui/material/colors';
+import Validation from './edit-modal-validation';
 // import UpdateAdmin from './update-admin';
 
 export default function Students() {
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastOwner] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // const [storeFirstName, setStoreFirstName] = useState('');
+  // const [storeLastName, setStoreLastName] = useState('');
+  // const [storeEmail, setStoreEmail] = useState('');
+  // const [storePassword, setStorePassword] = useState('');
+
   // const [updateAdminModal, setUpdateAdminModal] = useState(false);
   // const [adminToUpdate, setAdminToUpdate] = useState('');
 
@@ -31,17 +37,11 @@ export default function Students() {
   const handleOpen = () => {
     setOpen(true);
   };
-  const textHeading = createTheme({
-    typography: {
-      fontFamily: 'Calibri',
-      fontSize: 15,
-    },
-  });
 
   const buttonTheme = createTheme({
     palette: {
       delete: {
-        main: '#FF4D4D',
+        main: green[400],
         contrastText: '#fff',
       },
       cancel: {
@@ -54,6 +54,19 @@ export default function Students() {
       fontSize: 20,
     },
   });
+
+  const firstNameChangeHandler = (event) => {
+    setFirstName(event.target.value);
+  };
+  const lastNameChangeHandler = (event) => {
+    setLastName(event.target.value);
+  };
+  const emailChangeHandler = (event) => {
+    setEmail(event.target.value);
+  };
+  const passwordChangeHandler = (event) => {
+    setPassword(event.target.value);
+  };
 
   // const updateAdmin = (event) => {
   //   updateAdminHandler(event.target.value);
@@ -142,8 +155,8 @@ export default function Students() {
                     backgroundColor: grey[100],
                     boxShadow: 2,
                   }}
-                  // onChange={firstNameChangeHandler}
-                  // value={firstName}
+                  onChange={firstNameChangeHandler}
+                  value={firstName}
                 />
               </Grid>
               <Grid item xs={6} sm={6}>
@@ -155,8 +168,8 @@ export default function Students() {
                     backgroundColor: grey[100],
                     boxShadow: 2,
                   }}
-                  // onChange={lastNameChangeHandler}
-                  // value={lastName}
+                  onChange={lastNameChangeHandler}
+                  value={lastName}
                 />
               </Grid>
 
@@ -169,22 +182,8 @@ export default function Students() {
                     backgroundColor: grey[100],
                     boxShadow: 2,
                   }}
-                  // onChange={emailChangeHandler}
-                  // value={email}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Enter username..."
-                  variant="filled"
-                  sx={{
-                    backgroundColor: grey[100],
-                    boxShadow: 2,
-                  }}
-                  // onChange={usernameChangeHandler}
-                  // value={username}
+                  onChange={emailChangeHandler}
+                  value={email}
                 />
               </Grid>
 
@@ -197,8 +196,8 @@ export default function Students() {
                     backgroundColor: grey[100],
                     boxShadow: 2,
                   }}
-                  // onChange={passwordChangeHandler}
-                  // value={password}
+                  onChange={passwordChangeHandler}
+                  value={password}
                 />
               </Grid>
 
@@ -252,6 +251,8 @@ export default function Students() {
                 </Grid>
               </Grid>
             </Grid>
+
+            <Validation firstName={firstName} />
           </Box>
         </DialogActions>
       </Dialog>

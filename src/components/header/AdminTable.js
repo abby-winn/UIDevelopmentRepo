@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import SearchBar from './SearchBar';
 import DeleteAdmin from './deleteAdmin';
-import EditModal from './edit-modal';
+import EditModal from './edit-modal/edit-modal';
 import InactiveAdmin from './inactiveAdmin';
 import RegisterAdmin from './registerAdmin';
 
@@ -30,10 +30,7 @@ const rows = [
 export default function AdminTable() {
   return (
     <>
-      <SearchBar
-        sx={{
-        }}
-      />
+      <SearchBar sx={{}} />
       <TableContainer
         component={Paper}
         align="center"
@@ -68,12 +65,12 @@ export default function AdminTable() {
                   fontSize: 'large',
                 }}
               >
-              <Grid container>
-                <Grid item xs={6} />
-                <Grid item xs={2}>
-                  Name
+                <Grid container>
+                  <Grid item xs={6} />
+                  <Grid item xs={2}>
+                    Name
+                  </Grid>
                 </Grid>
-              </Grid>
               </TableCell>
 
               <TableCell
@@ -128,7 +125,7 @@ export default function AdminTable() {
                     <Grid item xs={2}>
                       <Box>
                         {row.name}
-                        <Typography/>
+                        <Typography />
                       </Box>
                     </Grid>
                   </Grid>
