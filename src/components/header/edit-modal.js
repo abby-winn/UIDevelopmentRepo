@@ -1,16 +1,15 @@
 import Container from '@mui/material/Container';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
-import { Dialog, DialogTitle, DialogActions } from '@mui/material';
+import { Dialog, DialogActions } from '@mui/material';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { createTheme } from '@mui/material/styles';
-import { indigo, green, lightBlue, grey } from '@mui/material/colors';
 // import UpdateAdmin from './update-admin';
 
 export default function Students() {
@@ -32,6 +31,15 @@ export default function Students() {
     setOpen(true);
   };
 
+  const editIconStyling = {
+    borderRadius: 2,
+    backgroundColor: 'orange',
+  };
+
+  const closeIconColor = {
+    color: 'white',
+  };
+
   const buttonTheme = createTheme({
     palette: {
       delete: {
@@ -46,14 +54,6 @@ export default function Students() {
     typography: {
       fontFamily: 'Calibri',
       fontSize: 20,
-    },
-  });
-
-  const iconPositioning = createTheme({
-    Box: {
-      position: 'absolute',
-      right: '8',
-      top: '8',
     },
   });
 
@@ -95,10 +95,7 @@ export default function Students() {
       <IconButton
         variant="contained"
         aria-label="Edit"
-        sx={{
-          borderRadius: 2,
-          backgroundColor: 'orange',
-        }}
+        sx={editIconStyling}
         // value={admin.Id}
         onClick={handleOpen}
       >
@@ -117,13 +114,11 @@ export default function Students() {
             >
               Edit Admin
             </Typography>
-            <Typography>Hello</Typography>
             <IconButton
               onClick={handleClose}
               sx={{ position: 'absolute', right: 8, top: 8 }}
-              theme={iconPositioning}
             >
-              <CloseIcon fontSize="large" sx={{ color: 'white' }} />
+              <CloseIcon fontSize="large" sx={closeIconColor} />
             </IconButton>
           </Box>
         </Grid>
@@ -213,7 +208,7 @@ export default function Students() {
                   </Box>
                 </Grid>
 
-                <Grid item xs={4} sx={{ borderRadius: '10px' }}>
+                <Grid item xs={4}>
                   <Box>
                     <Button
                       theme={buttonTheme}
