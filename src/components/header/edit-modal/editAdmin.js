@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { createTheme } from '@mui/material/styles';
 import { green, grey } from '@mui/material/colors';
-import Validation from './edit-modal-validation';
+import Validation from './editAdminValidation';
 // import UpdateAdmin from './update-admin';
 
 export default function Students() {

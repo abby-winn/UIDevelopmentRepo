@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import SearchBar from './SearchBar';
 import DeleteAdmin from './deleteAdmin';
-import EditModal from './edit-modal/edit-modal';
+import EditModal from './edit-modal/editAdmin';
 import InactiveAdmin from './inactiveAdmin';
 import RegisterAdmin from './registerAdmin';
 

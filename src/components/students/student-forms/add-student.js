@@ -111,7 +111,7 @@ export default function AddStudent(props) {
       >
         Add Student
       </Button>
-    
+
       <AddAdmin />
     </Box>
   );
